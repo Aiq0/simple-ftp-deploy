@@ -50,7 +50,8 @@ The format is [JSON](https://www.json.org), so every property consists of a key-
     "ignoredExtensions": [".ignore", ".txt"],
     "ignoredFolders": ["ignore", "IGNORE"],
     "sessionCacheEnabled": true,
-    "connectionTimeout": 600
+    "connectionTimeout": 600,
+    "passive": true
 }
 ```
 
@@ -63,14 +64,14 @@ The hostname or IP address of your FTP server.
 The port of the FTP server.
 
 `"username"` *string*  
-The username
+The username.
 
 `"password"` *string*  
-The password
+The password.
 
 `"rootDirectory"` *string, optional (default: `"/"`)*  
 The FTP path to deploy.  
-**Example:** in the root of FTP you have three folders `site1`, `site2`, `site3` and if you need to upload in `site2` folder, you must set this property to `/site2`, because if you skip this property, files will be upload to the root of FTP
+**Example:** in the root of FTP you have three folders `site1`, `site2`, `site3` and if you need to upload in `site2` folder, you must set this property to `/site2`, because if you skip this property, files will be upload to the root of FTP.
 
 `"autoCreateDirectory"` *boolean, optional (default: `false`)*  
 Whatever to automatically create a directory if doesn't exist and don't prompt user for acceptation.
@@ -85,13 +86,17 @@ List of extensions to ignore. Note that it only check last extension (so `file.t
 List of folder names to ignore. The file is ingored, if it is in at least one of the specified folders (so `folder1/folder2/file.py` is ignored if `"ignoredFolders"` contains `"folder1"` and/or `"folder2"`). **Case-sensitive**
 
 `"sessionCacheEnabled"` *boolean, optional (default: `true`)*  
-Whatever FTP session caching is enabled (only for time specified in `"connectionTimeout"`, extends if session is used in that time)
+Whatever FTP session caching is enabled (only for time specified in `"connectionTimeout"`, extends if session is used in that time).
 
 `"connectionTimeout"` *number, optional (default: `600`)*  
-Sets timeout for FTP connections and for cache lifetime (in seconds)
+Sets timeout for FTP connections and for cache lifetime (in seconds).
+
+`"passive"` *boolean, optional (default: `true`)*  
+Whether to connect to the FTP server in passive mode.
 
 ## Contributors
 - [Aiq0](https://github.com/Aiq0)
+- [themiddlehalf](https://github.com/themiddlehalf)
 
 ## License
 The MIT License
